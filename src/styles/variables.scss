@@ -1,0 +1,10 @@
+$keyColor: #ff385c;
+$keyHoverColor: #dd1162;
+$borderColor: #ebebeb;
+$loadingColor: #ddd;
+
+@mixin flexMix($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
