@@ -12,11 +12,11 @@ const Routers = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route exact path="/" element={<Main />} />
-        <Route exact path="/roomlists" element={<RoomLists />} />
-        <Route exact path="/detail" element={<Detail />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/mypage" element={<MyPage />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/roomlists" element={<RoomLists />} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );
