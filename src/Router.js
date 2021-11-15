@@ -7,7 +7,7 @@ import RoomLists from './pages/RoomLists/RoomLists';
 import Detail from './pages/Detail/Detail';
 import MyPage from './pages/MyPage/MyPage';
 
-const Routers = () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
@@ -22,4 +22,4 @@ const Routers = () => {
   );
 };
 
-export default Routers;
+export default Router;
