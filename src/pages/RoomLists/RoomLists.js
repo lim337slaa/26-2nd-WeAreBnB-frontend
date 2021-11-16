@@ -15,6 +15,7 @@ function RoomLists() {
   const [maxPrice, setMaxPrice] = useState(500000);
   const [roomType, setRoomtype] = useState([]);
   const [page, setPage] = useState(0);
+  const [highlight, setHighlight] = useState(0);
   const navigate = useNavigate();
 
   const moveDetailPage = id => {
@@ -65,6 +66,10 @@ function RoomLists() {
       : navigate(`?${query}&${roomTypeQuery}&limit=15&offset=${page}`);
   };
 
+  const highlightedMarker = status => {
+    setHighlight(status);
+  };
+
   return (
     <div>
       <Filter>
@@ -104,6 +109,7 @@ function RoomLists() {
                 starRating={room.rating}
                 review={room.review}
                 moveDetailPage={moveDetailPage}
+                highlightedMarker={highlightedMarker}
               />
             );
           })}
@@ -122,7 +128,7 @@ function RoomLists() {
             })}
           </Pagination>
         </div>
-        <Map />
+        <Map rooms={rooms} highlight={highlight} />
       </RoomList>
     </div>
   );
@@ -166,7 +172,7 @@ const SubFilter = styled.div`
 `;
 
 const RoomList = styled.div`
-  ${flexMix('center', '')};
+  ${flexMix('', 'space-beween')};
 `;
 
 const Pagination = styled.div`
