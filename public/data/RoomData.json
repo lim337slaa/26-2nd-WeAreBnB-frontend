@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "title": "#Kong2♡넷플릭스♡광안리#로얄층#신축#광안대교오션뷰#바닷가1초거리#연인친구가족",
+      "max_guest": 4,
+      "price": "139000.00",
+      "room_detail": {
+        "bedroom": 1,
+        "bed": 1,
+        "bath": 1
+      },
+      "images": [
+        "./images/kara-eads-L7EwHkq1B2s-unsplash.jpg",
+        "./images/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg",
+        "./images/17560_12351_5947.jpeg"
+      ],
+      "위도": 32432.234234,
+      "경도": 32432.234234,
+      "address": "강남구 삼성동 테헤란로 427",
+      "room_type": "집전체",
+      "review": 3,
+      "rating": 3.5,
+      "room_options": ["주방", "무선 인터넷", "에어컨"]
+    }
+  ]
+}
