@@ -6,6 +6,7 @@ import Main from './pages/Main/Main';
 import RoomLists from './pages/RoomLists/RoomLists';
 import Detail from './pages/Detail/Detail';
 import MyPage from './pages/MyPage/MyPage';
+import Redirect from './pages/Login/components/Redirect';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path="/roomlists" element={<RoomLists />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/oauth" element={<Redirect />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
