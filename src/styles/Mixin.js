@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 
-const Navigation = styled.nav`
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-`;
+// const Navigation = styled.nav`
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+// `;
 
 const RingVariant = (radius, stroke = '10') => css`
   position: absolute;
