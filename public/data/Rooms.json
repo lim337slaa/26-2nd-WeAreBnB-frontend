@@ -1,0 +1,200 @@
+{
+  "results": [
+    {
+      "id": 3,
+      "title": "[OPEN SALE] #SLOW #REST",
+      "price": 142101.0,
+      "room_detail": {
+        "max_guest": 2,
+        "bedroom": 2,
+        "bed": 2,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181947_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_960_720.jpg"
+      ],
+      "latitude": "37.52610500000000",
+      "longitude": "127.04574700000000",
+      "address": "한국 서울시 강남구 청담동 99-22",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기"
+      ],
+      "rating": 4.5,
+      "review": "450"
+    },
+    {
+      "id": 1,
+      "title": "[오픈기념 30%할인] 베니스에서 아침을~ #방역소독완료 #베네치아감성",
+      "price": 149033.0,
+      "room_detail": {
+        "max_guest": 4,
+        "bedroom": 1,
+        "bed": 1,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/27/10/16/interior-2685521_960_720.jpg"
+      ],
+      "latitude": "37.52192700000000",
+      "longitude": "127.04662600000000",
+      "address": "한국 서울시 강남구 청담동 11-5",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기",
+        "건조기",
+        "냉장고",
+        "에어컨",
+        "헬스장"
+      ],
+      "rating": 3.5,
+      "review": "30"
+    },
+    {
+      "id": 3,
+      "title": "[OPEN SALE] #SLOW #REST",
+      "price": 142101.0,
+      "room_detail": {
+        "max_guest": 2,
+        "bedroom": 2,
+        "bed": 2,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181947_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_960_720.jpg"
+      ],
+      "latitude": "37.52610500000000",
+      "longitude": "127.04574700000000",
+      "address": "한국 서울시 강남구 청담동 99-22",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기"
+      ],
+      "rating": 2.5,
+      "review": "50"
+    },
+    {
+      "id": 3,
+      "title": "[OPEN SALE] #SLOW #REST",
+      "price": 142101.0,
+      "room_detail": {
+        "max_guest": 2,
+        "bedroom": 2,
+        "bed": 2,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181947_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_960_720.jpg"
+      ],
+      "latitude": "37.52610500000000",
+      "longitude": "127.04574700000000",
+      "address": "한국 서울시 강남구 청담동 99-22",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기"
+      ],
+      "rating": 5,
+      "review": "490"
+    },
+    {
+      "id": 3,
+      "title": "[OPEN SALE] #SLOW #REST",
+      "price": 142101.0,
+      "room_detail": {
+        "max_guest": 2,
+        "bedroom": 2,
+        "bed": 2,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181947_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_960_720.jpg"
+      ],
+      "latitude": "37.52610500000000",
+      "longitude": "127.04574700000000",
+      "address": "한국 서울시 강남구 청담동 99-22",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기"
+      ],
+      "rating": 2.5,
+      "review": "1230"
+    },
+    {
+      "id": 3,
+      "title": "[OPEN SALE] #SLOW #REST",
+      "price": 142101.0,
+      "room_detail": {
+        "max_guest": 2,
+        "bedroom": 2,
+        "bed": 2,
+        "bath": 1
+      },
+      "images": [
+        "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181947_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_960_720.jpg"
+      ],
+      "latitude": "37.52610500000000",
+      "longitude": "127.04574700000000",
+      "address": "한국 서울시 강남구 청담동 99-22",
+      "room_type": "집 전체",
+      "room_options": [
+        "무선 인터넷",
+        "주방",
+        "헤어드라이어",
+        "셀프 체크인",
+        "취소 수수료 없음",
+        "세탁기"
+      ],
+      "rating": 48.8,
+      "review": "230"
+    }
+  ]
+}

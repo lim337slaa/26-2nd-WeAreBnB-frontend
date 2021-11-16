@@ -3,6 +3,7 @@ const theme = {
   keyHoverColor: '#dd1162',
   borderColor: '#ebebeb',
   loadingColor: '#ddd',
+  fontColor: '#717171',
 };
 
 export default theme;
