@@ -1,0 +1,102 @@
+{
+  "results": {
+    "reservations": [
+      {
+        "reservation_id": 2,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-11-25",
+        "check_out": "2021-11-30"
+      },
+      {
+        "reservation_id": 3,
+        "address": "한국 서울시 강남구 청담동 99-22",
+        "title": "[OPEN SALE] #SLOW #REST",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/13/chairs-2181968_960_720.jpg",
+        "check_in": "2021-12-25",
+        "check_out": "2021-12-30"
+      },
+      {
+        "reservation_id": 4,
+        "address": "한국 서울시 강남구 삼성2동 25-10",
+        "title": "[OPEN] #아지트5.3# Healing camp & Home cinema",
+        "image_url": "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_960_720.jpg",
+        "check_in": "2021-11-24",
+        "check_out": "2021-11-25"
+      },
+      {
+        "reservation_id": 5,
+        "address": "한국 서울시 강남구 삼성2동 27-18",
+        "title": "윤스하우스201~포근한나만의쉼터.",
+        "image_url": "https://cdn.pixabay.com/photo/2019/03/11/09/58/ikea-4048225_960_720.jpg",
+        "check_in": "2021-11-27",
+        "check_out": "2021-11-30"
+      },
+      {
+        "reservation_id": 6,
+        "address": "한국 서울시 강남구 삼성동 39-17번지",
+        "title": "L7 Standard Double",
+        "image_url": "https://cdn.pixabay.com/photo/2017/06/13/22/42/kitchen-2400367_960_720.jpg",
+        "check_in": "2021-12-02",
+        "check_out": "2021-12-03"
+      },
+      {
+        "reservation_id": 7,
+        "address": "한국 서울시 강남구 청담동 학동로55길 12-4",
+        "title": "[프라이빗 파티 컨셉 럭셔리 스위트 룸] Upper House",
+        "image_url": "https://cdn.pixabay.com/photo/2016/04/18/08/50/kitchen-1336160_960_720.jpg",
+        "check_in": "2021-12-05",
+        "check_out": "2021-12-07"
+      },
+      {
+        "reservation_id": 8,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-15",
+        "check_out": "2021-12-17"
+      },
+      {
+        "reservation_id": 9,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-16",
+        "check_out": "2021-12-17"
+      },
+      {
+        "reservation_id": 10,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-16",
+        "check_out": "2021-12-18"
+      },
+      {
+        "reservation_id": 11,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-26",
+        "check_out": "2021-12-28"
+      },
+      {
+        "reservation_id": 12,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-23",
+        "check_out": "2021-12-24"
+      },
+      {
+        "reservation_id": 12,
+        "address": "한국 서울시 강남구 삼성1동 62-9",
+        "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+        "image_url": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+        "check_in": "2021-12-23",
+        "check_out": "2021-12-24"
+      }
+    ]
+  }
+}
