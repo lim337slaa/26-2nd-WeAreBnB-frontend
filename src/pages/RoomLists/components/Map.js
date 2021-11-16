@@ -1,21 +1,24 @@
 /* global google */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 import styled from 'styled-components';
 
-const Map = () => {
-  const [locations, setLocations] = useState([]);
+const ICONS = {
+  white: 'images/marker_white.png',
+  black: 'images/marker_black.png',
+};
 
+const MAP_OPTION = {
+  center: { lat: 37.5116419, lng: 127.0442542 },
+  zoom: 14,
+};
+
+const Map = ({ rooms, highlight }) => {
+  const map = useRef('');
   const loader = useRef(null);
-  const map = useRef(null);
-  const marker = useRef(null);
+  const marker = useRef([]);
   const infoWindow = useRef(null);
-  const mapBoxRef = useRef();
-
-  const mapOptions = {
-    center: { lat: 41.3954, lng: 2.162 },
-    zoom: 12,
-  };
+  const mapBoxRef = useRef('');
 
   useEffect(() => {
     loader.current = new Loader({
@@ -23,49 +26,73 @@ const Map = () => {
       version: 'weekly',
     });
 
-    fetch('/data/Locations.json')
-      .then(res => res.json())
-      .then(data => setLocations(data));
-
     loader.current.load().then(() => {
-      map.current = new google.maps.Map(mapBoxRef.current, mapOptions);
-      infoWindow.current = new google.maps.InfoWindow();
-      marker.current = locations.map(item => {
-        const { lat, lng, name } = item.location;
-        return new google.maps.Marker({
-          position: { lat: lat, lng: lng }, // 백엔드와 통신 시 latitude, longintude로 들어오게 될 예정이어서 줄이지 않고 일단 놔두었습니다.
-          map: map.current,
-          title: `${name}`,
-          label: `${name}`,
-          optimized: false,
-        });
+      map.current = new google.maps.Map(mapBoxRef.current, MAP_OPTION);
+      infoWindow.current = new google.maps.InfoWindow({});
+      rooms.map(item => {
+        const priceNumber = item.price.toLocaleString();
+        return createMarker(
+          item.latitude,
+          item.longitude,
+          item.title,
+          ICONS.white,
+          priceNumber
+        );
       });
-      return marker;
     });
 
     const script = document.createElement('script');
-    script.src = { loader };
+    script.src = loader.current;
     script.async = true;
     document.body.appendChild(script);
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [rooms]);
+
+  const createMarker = (lat, lng, iconTitle, icon, price) => {
+    marker.current = new google.maps.Marker({
+      position: { lat: Number(lat), lng: Number(lng) },
+      map: map.current,
+      title: iconTitle,
+      icon: {
+        url: icon,
+        size: new google.maps.Size(100, 30),
+        origin: new google.maps.Point(0, 0),
+        anthor: new google.maps.Point(0, 0),
+        scaleSize: new google.maps.Size(100, 100),
+      },
+      label: {
+        text: `₩${price}`,
+        fontWeight: '700',
+        fontSize: '16px',
+        color: '#ff385c',
+      },
+      optimized: false,
+    });
+  };
+
+  rooms.map(item => {
+    const icon = !(highlight === item.room_id) ? ICONS.white : ICONS.black;
+    const priceNumber = item.price.toLocaleString();
+    return createMarker(
+      item.latitude,
+      item.longitude,
+      item.title,
+      icon,
+      priceNumber
+    );
+  });
 
   return (
     <MapLoad>
       <Box
         ref={mapBoxRef}
-        id="map"
+        className="box"
         onClick={() => {
           infoWindow.current.close();
-          infoWindow.current.setContent(
-            marker.current.map(marker && (marker => marker.getTitle()))
-          );
-          infoWindow.current.open(
-            marker.current.map(marker && (marker => marker.getMap())),
-            marker.current
-          );
+          infoWindow.current.setContent(marker.current.getTitle());
+          infoWindow.current.open(marker.current.getMap(), marker.current);
         }}
       />
     </MapLoad>
@@ -84,6 +111,6 @@ const MapLoad = styled.div`
 
 const Box = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-color: ${({ theme }) => theme.borderColor};
 `;

@@ -14,9 +14,13 @@ function RoomBox({
   starRating,
   review,
   moveDetailPage,
+  highlightedMarker,
 }) {
   return (
-    <RoomBoxs>
+    <RoomBoxs
+      onMouseEnter={() => highlightedMarker(id)}
+      onMouseLeave={() => highlightedMarker(0)}
+    >
       <div className="roomBoxLeft">
         <RoomPhotos classNmae="roomImg" imgs={images} />
       </div>

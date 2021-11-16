@@ -6,7 +6,7 @@ import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
 import 'rheostat/initialize';
 // import 'react-dates/initialize';
-// import 'react-dates/lib/css/_datepicker.css';
+// import 'react-dates/lib/css/_datepicker.css'
 
 ReactDOM.render(
   <>
