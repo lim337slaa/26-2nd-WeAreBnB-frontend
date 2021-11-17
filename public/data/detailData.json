@@ -1,0 +1,122 @@
+{
+  "results": {
+    "room_info": {
+      "id": 5,
+      "host": "이지은",
+      "room_type": "집 전체",
+      "title": "#방구석영화관2#햇살가득 #방구석캠핑 #무료주차",
+      "description": "✔ 도보 2분거리 편의점. 3분거리 먹자골목에 위치!!",
+      "price": "98200",
+      "max_guest": 5,
+      "bedroom": 1,
+      "bed": 1,
+      "bath": 1,
+      "room_option": [
+        {
+          "roomOption_name": "무선 인터넷",
+          "roomOption_url": "https://cdn-icons-png.flaticon.com/512/93/93158.png"
+        },
+        {
+          "roomOption_name": "주방",
+          "roomOption_url": "https://cdn-icons-png.flaticon.com/512/963/963883.png"
+        },
+        {
+          "roomOption_name": "헤어드라이어",
+          "roomOption_url": "https://cdn-icons-png.flaticon.com/512/70/70199.png"
+        },
+        {
+          "roomOption_name": "셀프 체크인",
+          "roomOption_url": "https://cdn-icons-png.flaticon.com/512/70/70199.png"
+        },
+        {
+          "roomOption_name": "취소 수수료 없음",
+          "roomOption_url": "https://cdn-icons-png.flaticon.com/512/5229/5229309.png"
+        }
+      ],
+      "location": "한국 서울시 강남구 역삼1동 선릉로 62-9",
+      "latitude": 37.517173,
+      "longitude": 127.054316,
+      "average_rating": 4.5,
+      "review_count": 6
+    },
+    "reservation_date": [
+      {
+        "check_in": "2021-12-22",
+        "check_out": "2021-12-24",
+        "days": 2
+      },
+      {
+        "check_in": "2021-12-10",
+        "check_out": "2021-12-12",
+        "days": 2
+      },
+      {
+        "check_in": "2021-12-05",
+        "check_out": "2021-12-09",
+        "days": 2
+      },
+      {
+        "check_in": "2021-12-29",
+        "check_out": "2021-12-30",
+        "days": 2
+      }
+    ],
+    "room_image": [
+      "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/11/30/08/48/bedroom-1872196_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2017/03/19/01/43/living-room-2155376_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/08/26/15/06/home-1622401_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2017/01/07/17/48/interior-1961070_960_720.jpg"
+    ],
+    "review_info": [
+      {
+        "username": "박소윤",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "편하게 쉬다갑니다!",
+        "content": "편하게 쉬다갑니다!",
+        "rating": 5.0,
+        "date": "2021/11"
+      },
+      {
+        "username": "임기범",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "좋았어용",
+        "content": "좋았어용",
+        "rating": 5.0,
+        "date": "2021/11"
+      },
+      {
+        "username": "박민정",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "푹 쉬다 갑니다",
+        "content": "침대가 너무 푹신해서 푹 쉬다갈 수 있었어요! 빔프로젝트도 잘 쓰다가요 :)",
+        "rating": 4.0,
+        "date": "2021/11"
+      },
+      {
+        "username": "한화연",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "가성비 좋아요",
+        "content": "그림 그대로 빔프로젝터가 너무 좋았어요! ㅎㅎ 방도 깔끔하고 가성비로 잘 즐겼습니다",
+        "rating": 4.0,
+        "date": "2021/11"
+      },
+      {
+        "username": "김여름",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "깔끔하네요",
+        "content": "전체적으로 깔끔했습니다. 대중교통을 이용하기에도 위치가 좋았어요~",
+        "rating": 4.0,
+        "date": "2021/11"
+      },
+      {
+        "username": "임기범",
+        "user_profile": "https://images.unsplash.com/photo-1579807351146-e6dd49462635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "title": "아늑하네요",
+        "content": "아늑하고 포근한 집이었습니다!!",
+        "rating": 5.0,
+        "date": "2021/11"
+      }
+    ]
+  }
+}
