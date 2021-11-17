@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 function CityCard(props) {
   const { id, key, src, title, subtitle, backgroundcolor } = props;
+
   return (
     <div>
       <Container backgroundcolor={backgroundcolor}>

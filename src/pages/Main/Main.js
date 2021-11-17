@@ -15,7 +15,6 @@ function Main() {
 
   return (
     <>
-      <Navbar />
       <Background>
         <Content>
           <ContentText>위어비앤비가 여행지를 찾아드릴게요!</ContentText>
@@ -42,12 +41,6 @@ function Main() {
 }
 
 export default Main;
-
-const Navbar = styled.div`
-  width: 100%;
-  height: 90px;
-  background-color: green;
-`;
 
 const Background = styled.div`
   width: 100%;

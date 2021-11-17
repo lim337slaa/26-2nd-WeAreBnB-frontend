@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "성인",
+    "subTitle": "만 13세 이상",
+    "backgroundcolor": "rgb(217, 59, 48)"
+  },
+  {
+    "id": 2,
+    "title": "어린이",
+    "subTitle": "만 2~12세",
+    "backgroundcolor": "rgb(217, 59, 48)"
+  }
+]
