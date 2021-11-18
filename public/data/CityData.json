@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "논현동",
+    "subTitle": "차로 4.5분 거리",
+    "src": "https://cdn.pixabay.com/photo/2017/04/24/13/37/architecture-2256489_1280.jpg",
+    "backgroundcolor": "rgb(217, 59, 48)"
+  },
+  {
+    "id": 2,
+    "title": "청담동",
+    "subTitle": "차로 15분 거리",
+    "src": "https://cdn.pixabay.com/photo/2021/10/02/09/18/airplane-6674689_1280.jpg",
+    "backgroundcolor": "rgb(204, 45, 74)"
+  },
+  {
+    "id": 3,
+    "title": "역삼동",
+    "subTitle": "차로 30분 거리",
+    "src": "https://cdn.pixabay.com/photo/2021/05/25/09/51/road-6281973_1280.jpg",
+    "backgroundcolor": "rgb(222, 49, 81)"
+  },
+  {
+    "id": 4,
+    "title": "삼성동",
+    "subTitle": "차로 8분 거리",
+    "src": "https://cdn.pixabay.com/photo/2021/08/25/09/49/woman-6572974_1280.jpg",
+    "backgroundcolor": "rgb(188, 26, 110)"
+  }
+]
