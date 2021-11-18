@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import FilterButton from './FilterButton/FilterButton';
-import RoomBox from './RoomList/RoomList';
-import Map from './Map/Map';
+import FilterButton from './components/FilterButton';
+import RoomBox from './components/RoomBox';
+import Map from './components/Map';
 
 function RoomLists() {
   const [rooms, setRooms] = useState([]);
