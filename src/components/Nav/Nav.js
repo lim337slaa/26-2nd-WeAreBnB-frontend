@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Nav() {
-  return <div>네브 입니다</div>;
+  return <div />;
 }
 
 export default Nav;
