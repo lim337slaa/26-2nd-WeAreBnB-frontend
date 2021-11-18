@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import RoomPhotos from '../RoomPhotos/RoomPhotos';
+import RoomPhotos from './RoomPhotos';
 import { AiFillStar } from 'react-icons/ai';
 
 function RoomList(props) {
