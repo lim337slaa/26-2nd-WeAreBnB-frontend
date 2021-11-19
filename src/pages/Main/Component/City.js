@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function City(props) {
-  const { id, key, src, title, subtitle } = props;
+function CityCard(props) {
+  const { id, key, src, title, subtitle, backgroundcolor } = props;
   return (
     <div>
-      <Container backgroundcolor={props.backgroundcolor}>
+      <Container backgroundcolor={backgroundcolor}>
         <ImgContainer>
           <img alt="error" src={src} />
         </ImgContainer>
@@ -18,7 +18,7 @@ function City(props) {
   );
 }
 
-export default City;
+export default CityCard;
 
 const Container = styled.div`
   width: 300px;
