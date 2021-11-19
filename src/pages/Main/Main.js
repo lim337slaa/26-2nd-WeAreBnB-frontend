@@ -4,12 +4,12 @@ import City from './Component/City';
 import img from './house.jpeg';
 
 function Main() {
-  const [data, setData] = useState([]);
+  const [CardData, setCardData] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/data/CityData.json')
+    fetch('./data/CityData.json')
       .then(res => res.json())
       .then(data => {
-        setData(data);
+        setCardData(data);
       });
   }, []);
 
@@ -22,7 +22,7 @@ function Main() {
         </Content>
         <TextBox>설레는 다음 여행을 위한 아이디어</TextBox>
         <CardContainer>
-          {data.map(card => {
+          {CardData.map(card => {
             return (
               <City
                 key={card.id}
