@@ -14,7 +14,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/roomlists" element={<RoomLists />} />
+        <Route path="/roomlist" element={<RoomLists />} />
         <Route path="/rooms/:id" element={<Detail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/oauth" element={<Redirect />} />

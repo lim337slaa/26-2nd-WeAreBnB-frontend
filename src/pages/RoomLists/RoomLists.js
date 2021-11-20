@@ -1,38 +1,95 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled, { css } from 'styled-components';
 import FilterButton from './components/FilterButton';
 import RoomBox from './components/RoomBox';
 import Map from './components/Map';
+import { SUB_FILTER } from './components/data';
 
 function RoomLists() {
   const [rooms, setRooms] = useState([]);
+  // const [subFilters, setSubFilters] = useState([]); // FIXME: 백엔드에 데이터전달 방식 논의 후 활성화 예정
+  const [minPrice, setMinPrice] = useState(10000);
+  const [maxPrice, setMaxPrice] = useState(500000);
+  const [roomType, setRoomtype] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/Rooms.json')
+    fetch(
+      `/data/Rooms.json`
+      // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}`
+    )
       .then(res => res.json())
       .then(data => setRooms(data.results));
   }, []);
 
+  useEffect(() => {
+    if (minPrice || maxPrice) {
+      fetch(
+        `/data/Rooms.json`
+        // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}`
+      )
+        .then(res => res.json())
+        .then(data => setRooms(data.results));
+    } else if (roomType.length > 0) {
+      fetch(
+        `/data/Rooms.json`
+        // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&${roomType}`
+      )
+        .then(res => res.json())
+        .then(data => setRooms(data.results));
+    }
+  }, [minPrice, maxPrice, roomType]);
+
+  const applyPriceFilterCondition = (min, max) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+    const quary = `price_max=${max}&price_min=${min}`;
+    navigate(`?${quary}`);
+  };
+
+  const applyRoomTypeCondition = types => {
+    const quary = `price_max=${maxPrice}&price_min=${minPrice}`;
+
+    const selectRoomType = [];
+
+    types.map(type => {
+      selectRoomType.push(`room_type=${type}`);
+    });
+
+    const roomTypeQuary = selectRoomType.join('&');
+    setRoomtype(roomTypeQuary);
+
+    !selectRoomType.length > 0
+      ? navigate(`?${quary}`)
+      : navigate(`?${quary}&${roomTypeQuary}`);
+  };
+
   return (
     <div>
       <Filter>
-        <MainFilter>
-          {/* TODO: map */}
-          <FilterButton name="요금" />
-          <FilterButton name="숙소 유형" />
-        </MainFilter>
+        <PriceFilter>
+          <FilterButton
+            name="요금"
+            applyPriceFilterCondition={applyPriceFilterCondition}
+          />
+        </PriceFilter>
+        <TypeFilter>
+          <FilterButton
+            name="숙소 유형"
+            applyRoomTypeCondition={applyRoomTypeCondition}
+          />
+        </TypeFilter>
+        <Line />
         <SubFilter>
-          <FilterButton name="취소 수수료 없음" />
-          <FilterButton name="수변에 인접" />
-          <FilterButton name="주방" />
-          <FilterButton name="무선 인터넷" />
-          <FilterButton name="요금" />
+          {SUB_FILTER.map(subfilter => {
+            return <FilterButton key={subfilter.id} name={subfilter.name} />;
+          })}
         </SubFilter>
         <br />
       </Filter>
       <RoomList>
         <div className="roomList">
-          {/* TODO: map */}
           {rooms.map(room => {
             return (
               <RoomBox
@@ -66,21 +123,32 @@ const flexMix = (align = 'center', justify = 'center') => css`
 const Filter = styled.div`
   ${flexMix('center', 'space-beween')};
   width: 100%;
-  padding: 20px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid ${({ theme }) => theme.borderColor};
 `;
 
-const MainFilter = styled.div`
+const PriceFilter = styled.div`
+  min-width: 60px;
+`;
+
+const TypeFilter = styled.div`
+  min-width: 95px;
+`;
+
+const Line = styled.div`
+  height: 20px;
+  margin: 0 0 0 10px;
   border-right: 1px solid ${({ theme }) => theme.borderColor};
-  margin-right: 5px;
-  padding-right: 5px;
 `;
 
 const SubFilter = styled.div`
+  ${flexMix('center', 'space-beween')};
+  flex-wrap: wrap;
+  height: 50px;
   border: none;
-  color: yellow;
+  overflow: hidden;
 `;
 
 const RoomList = styled.div`
-  ${flexMix('center', 'space-beween')};
+  ${flexMix('center', '')};
 `;
