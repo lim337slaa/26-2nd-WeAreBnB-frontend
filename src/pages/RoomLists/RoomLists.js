@@ -14,7 +14,7 @@ function RoomLists() {
   }, []);
 
   return (
-    <div className="RoomList">
+    <div>
       <Filter>
         <MainFilter>
           {/* TODO: map */}
@@ -31,7 +31,7 @@ function RoomLists() {
         <br />
       </Filter>
       <RoomList>
-        <div className="roomBoxs">
+        <div className="roomList">
           {/* TODO: map */}
           {rooms.map(room => {
             return (

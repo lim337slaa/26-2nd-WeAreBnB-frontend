@@ -3,22 +3,20 @@ import styled, { css } from 'styled-components';
 import RoomPhotos from './RoomPhotos';
 import { AiFillStar } from 'react-icons/ai';
 
-function RoomList(props) {
-  const {
-    images,
-    roomType,
-    title,
-    roomDetail,
-    roomOption,
-    price,
-    starRating,
-    review,
-  } = props;
-
+function RoomBox({
+  images,
+  roomType,
+  title,
+  roomDetail,
+  roomOption,
+  price,
+  starRating,
+  review,
+}) {
   return (
-    <RoomBox>
+    <RoomBoxs>
       <div className="roomBoxLeft">
-        <RoomPhotos img={images[0]} />
+        <RoomPhotos classNmae="roomImg" imgs={images} />
       </div>
       <div className="roomBoxRight">
         <RoomType>{roomType}</RoomType>
@@ -35,15 +33,15 @@ function RoomList(props) {
           <DetailType>욕실 {roomDetail.bath}개</DetailType>
         </DetailTypeWrap>
         <RoomOptionWrap>
-          {roomOption.slice(0, 5).map(option => (
-            <RoomOption> {option} </RoomOption>
+          {roomOption.slice(0, 5).map((option, index) => (
+            <RoomOption key={index + 1}> {option} </RoomOption>
           ))}
         </RoomOptionWrap>
         <RoomBoxBottom>
           <RoomReviewWrap>
             <AiFillStar style={starStyle} />
             <StarScore>{starRating}</StarScore>
-            <Review>(후기 {review}개)</Review>
+            <Review>(후기 {!review ? 0 : review}개)</Review>
           </RoomReviewWrap>
           <RoomPrice>
             <DiscountPriceWrap>
@@ -57,11 +55,11 @@ function RoomList(props) {
           </RoomPrice>
         </RoomBoxBottom>
       </div>
-    </RoomBox>
+    </RoomBoxs>
   );
 }
 
-export default RoomList;
+export default RoomBox;
 
 const flexMix = (align = 'center', justify = 'center') => css`
   display: flex;
@@ -69,24 +67,31 @@ const flexMix = (align = 'center', justify = 'center') => css`
   justify-content: ${justify};
 `;
 
-const RoomBox = styled.div`
+const RoomBoxs = styled.div`
   ${flexMix('center', 'flex-start')}
-  max-width: 1120px;
-  padding: 30px 0;
-  margin: 0 30px;
+  position: relative;
+  max-width: 900px;
+  padding: 20px 0;
+  margin: 0 20px;
   border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+
+  .roomBoxRight {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const RoomType = styled.div`
-  margin: 10px;
+  margin: 5px 10px;
   color: ${({ theme }) => theme.fontColor};
-  font-size: 16px;
+  font-size: 13px;
 `;
 
 const RoomName = styled.h3`
-  width: 450px;
-  margin: 10px;
-  font-size: 24px;
+  width: 400px;
+  margin: 5px 10px;
+  font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -94,7 +99,7 @@ const RoomName = styled.h3`
 
 const Line = styled.div`
   width: 40px;
-  margin: 20px 0px 20px 10px;
+  margin: 10px 0px 10px 10px;
   border-bottom: 1px solid ${({ theme }) => theme.borderColor};
 `;
 
@@ -106,11 +111,13 @@ const DetailTypeWrap = styled.div`
 
 const DetailType = styled.span`
   color: ${({ theme }) => theme.fontColor};
+  font-size: 13px;
 `;
 
 const RoomOptionWrap = styled.div`
   ${flexMix('center', 'flex-start')}
   margin: 5px 10px;
+  font-size: 13px;
 `;
 
 const RoomOption = styled.span`
@@ -120,22 +127,27 @@ const RoomOption = styled.span`
 
 const RoomBoxBottom = styled.div`
   ${flexMix('flex-end', 'space-between')}
-  margin: 70px 10px 5px 10px;
+  margin: 40px 10px 5px 10px;
 `;
 
 const RoomReviewWrap = styled.div`
   ${flexMix('center', 'space-between')}
 `;
 
-const starStyle = { color: 'red' };
+const starStyle = {
+  color: 'red',
+  marginBottom: '3px',
+};
 
 const StarScore = styled.div`
   font-weight: 700;
+  font-size: 13px;
 `;
 
 const Review = styled.div`
   ${flexMix('center', 'space-between')};
   color: ${({ theme }) => theme.fontColor};
+  font-size: 13px;
 `;
 
 const RoomPrice = styled.div`
@@ -145,11 +157,11 @@ const RoomPrice = styled.div`
 
 const DiscountPriceWrap = styled.div`
   ${flexMix('center', 'space-between')}
-  font-size: 20px;
+  font-size: 18px;
 
   &.price {
     color: ${({ theme }) => theme.fontColor};
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: underline;
   }
 `;
