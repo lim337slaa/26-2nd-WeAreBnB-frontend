@@ -4,6 +4,7 @@ import RoomPhotos from './RoomPhotos';
 import { AiFillStar } from 'react-icons/ai';
 
 function RoomBox({
+  id,
   images,
   roomType,
   title,
@@ -12,9 +13,10 @@ function RoomBox({
   price,
   starRating,
   review,
+  moveDetailPage,
 }) {
   return (
-    <RoomBoxs>
+    <RoomBoxs onClick={() => moveDetailPage(id)}>
       <div className="roomBoxLeft">
         <RoomPhotos classNmae="roomImg" imgs={images} />
       </div>
