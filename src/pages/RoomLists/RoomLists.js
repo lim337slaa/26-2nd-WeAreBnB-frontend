@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import FilterButton from './components/FilterButton';
 import RoomBox from './components/RoomBox';
 import Map from './components/Map';
 import { SUB_FILTER } from './components/data';
+
+const LIMIT = 15;
+const PAGES = new Array(1, 2, 3);
 
 function RoomLists() {
   const [rooms, setRooms] = useState([]);
@@ -13,15 +16,34 @@ function RoomLists() {
   const [maxPrice, setMaxPrice] = useState(500000);
   const [roomType, setRoomtype] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     fetch(
       `/data/Rooms.json`
       // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}`
-    )
+    );
+  }, []);
+
+  const changPageNumber = index => {
+    const pagination = `?limit=${LIMIT}&offset=${LIMIT * index}`;
+    navigate(`/RoomLists${pagination}`);
+  };
+
+  useEffect(() => {
+    // FIXME: 추후에 백엔드 작업이 다 끝나면 지울 예정입니다.
+    fetch('/data/rooms.json')
       .then(res => res.json())
       .then(data => setRooms(data.results));
-  }, []);
+
+    // fetch(`http://10.58.6.96:8000/rooms${location.search}`)
+    //   .then(res => res.json())
+    //   .then(data => setRooms(data.results));
+  }, [location]);
+
+  const moveDetailPage = id => {
+    navigate(`/rooms/${id}`);
+  };
 
   useEffect(() => {
     if (minPrice || maxPrice) {
@@ -93,7 +115,8 @@ function RoomLists() {
           {rooms.map(room => {
             return (
               <RoomBox
-                key={room.id}
+                key={room.room_id}
+                id={room.room_id}
                 images={room.images}
                 roomType={room.room_type}
                 title={room.title}
@@ -102,9 +125,24 @@ function RoomLists() {
                 price={room.price}
                 starRating={room.rating}
                 review={room.review}
+                moveDetailPage={moveDetailPage}
               />
             );
           })}
+          <Pagination>
+            {PAGES.map((page, index) => {
+              return (
+                <PageNumber
+                  key={index + 1}
+                  onClick={() => {
+                    changPageNumber(index);
+                  }}
+                >
+                  {page}
+                </PageNumber>
+              );
+            })}
+          </Pagination>
         </div>
         <Map />
       </RoomList>
@@ -151,4 +189,19 @@ const SubFilter = styled.div`
 
 const RoomList = styled.div`
   ${flexMix('center', '')};
+`;
+
+const Pagination = styled.div`
+  ${flexMix('center', 'center')};
+  width: 100%;
+  height: 30px;
+`;
+
+const PageNumber = styled.button`
+  margin: 5px;
+  border: none;
+  background-color: ${({ theme }) =>
+    props =>
+      props.checked ? theme.borderColor : '#fff'};
+  border-radius: 50%;
 `;
