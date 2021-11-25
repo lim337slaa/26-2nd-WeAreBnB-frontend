@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import 'rheostat/initialize';
 import Rheostat from 'rheostat';
 import { FlexMix } from '../../../styles/Mixin';
 
