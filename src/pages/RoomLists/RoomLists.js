@@ -11,67 +11,45 @@ const PAGES = new Array(1, 2, 3);
 
 function RoomLists() {
   const [rooms, setRooms] = useState([]);
-  // const [subFilters, setSubFilters] = useState([]); // FIXME: 백엔드에 데이터전달 방식 논의 후 활성화 예정
   const [minPrice, setMinPrice] = useState(10000);
   const [maxPrice, setMaxPrice] = useState(500000);
   const [roomType, setRoomtype] = useState([]);
+  const [page, setPage] = useState(0);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    fetch(
-      `/data/Rooms.json`
-      // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}`
-    );
-  }, []);
-
-  const changPageNumber = index => {
-    const pagination = `?limit=${LIMIT}&offset=${LIMIT * index}`;
-    navigate(`/RoomLists${pagination}`);
-  };
-
-  useEffect(() => {
-    // FIXME: 추후에 백엔드 작업이 다 끝나면 지울 예정입니다.
-    fetch('/data/rooms.json')
-      .then(res => res.json())
-      .then(data => setRooms(data.results));
-
-    // fetch(`http://10.58.6.96:8000/rooms${location.search}`)
-    //   .then(res => res.json())
-    //   .then(data => setRooms(data.results));
-  }, [location]);
 
   const moveDetailPage = id => {
     navigate(`/rooms/${id}`);
   };
 
   useEffect(() => {
-    if (minPrice || maxPrice) {
+    if (roomType.length > 0 && (minPrice || maxPrice)) {
       fetch(
-        `/data/Rooms.json`
-        // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}`
-      )
-        .then(res => res.json())
-        .then(data => setRooms(data.results));
-    } else if (roomType.length > 0) {
-      fetch(
-        `/data/Rooms.json`
-        // `http://10.58.6.96:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&${roomType}`
+        // `/data/Rooms.json`
+        `http://10.58.6.228:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}&${roomType}`
       )
         .then(res => res.json())
         .then(data => setRooms(data.results));
     }
-  }, [minPrice, maxPrice, roomType]);
+
+    if (roomType.length === 0 && (minPrice || maxPrice)) {
+      fetch(
+        // `/data/Rooms.json`
+        `http://10.58.6.228:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}`
+      )
+        .then(res => res.json())
+        .then(data => setRooms(data.results));
+    }
+  }, [minPrice, maxPrice, roomType, page]);
 
   const applyPriceFilterCondition = (min, max) => {
     setMinPrice(min);
     setMaxPrice(max);
-    const quary = `price_max=${max}&price_min=${min}`;
-    navigate(`?${quary}`);
+    const query = `price_max=${max}&price_min=${min}`;
+    navigate(`?${query}&limit=15&offset=${page}`);
   };
 
   const applyRoomTypeCondition = types => {
-    const quary = `price_max=${maxPrice}&price_min=${minPrice}`;
+    const query = `price_max=${maxPrice}&price_min=${minPrice}`;
 
     const selectRoomType = [];
 
@@ -79,12 +57,12 @@ function RoomLists() {
       selectRoomType.push(`room_type=${type}`);
     });
 
-    const roomTypeQuary = selectRoomType.join('&');
-    setRoomtype(roomTypeQuary);
+    const roomTypeQuery = selectRoomType.join('&');
+    setRoomtype(roomTypeQuery);
 
     !selectRoomType.length > 0
-      ? navigate(`?${quary}`)
-      : navigate(`?${quary}&${roomTypeQuary}`);
+      ? navigate(`?${query}&limit=15&offset=${page}`)
+      : navigate(`?${query}&${roomTypeQuery}&limit=15&offset=${page}`);
   };
 
   return (
@@ -135,7 +113,7 @@ function RoomLists() {
                 <PageNumber
                   key={index + 1}
                   onClick={() => {
-                    changPageNumber(index);
+                    setPage(LIMIT * index);
                   }}
                 >
                   {page}
