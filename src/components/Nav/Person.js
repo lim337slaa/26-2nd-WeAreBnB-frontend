@@ -19,11 +19,11 @@ function PersonCard({
           onClick={() => minusPersonNumber(title)}
           disabled={personNum < 1 ? true : childNum < 1 ? true : false}
         >
-          -
+          <MinusSpan>-</MinusSpan>
         </Minus>
         <Count>{title === '성인' ? personNum : childNum}</Count>
         <Plus value="plusBtn" onClick={() => plusPersonNumber(title)}>
-          +
+          <PlusSpan>+</PlusSpan>
         </Plus>
       </PlusMinusContainer>
     </Container>
@@ -64,6 +64,8 @@ const SubText = styled.div`
 `;
 
 const Minus = styled.button`
+  display: flex;
+  align-items: center;
   position: relative;
   right: 50px;
   width: 30px;
@@ -71,10 +73,17 @@ const Minus = styled.button`
   background-color: white;
   border: 1px solid;
   border-radius: 15px;
-  }
+`;
+
+const MinusSpan = styled.span`
+  width: 40px;
+  font-size: 30px;
+  margin-bottom: 9px;
 `;
 
 const Plus = styled.button`
+  display: flex;
+  align-items: center;
   position: relative;
   left: 50px;
   width: 30px;
@@ -82,4 +91,10 @@ const Plus = styled.button`
   background-color: white;
   border: 1px solid;
   border-radius: 15px;
+`;
+
+const PlusSpan = styled.span`
+  width: 40px;
+  font-size: 23px;
+  margin-bottom: 5px;
 `;

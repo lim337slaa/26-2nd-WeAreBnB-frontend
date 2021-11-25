@@ -13,6 +13,7 @@ function RoomBox({
   price,
   starRating,
   review,
+  days,
   moveDetailPage,
   highlightedMarker,
 }) {
@@ -56,7 +57,7 @@ function RoomBox({
               <DiscountPrice className="night">박</DiscountPrice>
             </DiscountPriceWrap>
             <DiscountPriceWrap className="price">
-              총액 149,000원
+              총액 {(price * days).toLocaleString()}원
             </DiscountPriceWrap>
           </RoomPrice>
         </RoomBoxBottom>

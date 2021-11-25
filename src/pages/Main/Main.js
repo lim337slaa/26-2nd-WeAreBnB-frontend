@@ -52,7 +52,8 @@ const Content = styled.div`
   background-image: url(${img});
   max-width: 1280px;
   height: 720px;
-  margin-left: 70px;
+  margin: 20px auto;
+  border-radius: 15px;
 `;
 
 const ContentText = styled.div`
@@ -62,15 +63,16 @@ const ContentText = styled.div`
   padding: 200px 300px 0px 300px;
 `;
 
-const TextBox = styled.div`
+const TextBox = styled.p`
   font-size: 40px;
   font-weight: bold;
-  margin: 100px 0px 0px 70px;
+  margin: 70px auto;
+  width: 1300px;
 `;
 
 const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 70px 70px 0px 70px;
+  margin: 70px auto;
   max-width: 1280px;
 `;

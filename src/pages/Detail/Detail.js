@@ -9,6 +9,7 @@ import DetailConvenience from './components/DetailConvenience';
 import ReservationSider from './components/ReservationSider';
 import DetailReview from './components/DetailReview';
 import DetailCheck from './components/DetailCheck';
+import { API } from '../../config';
 
 function Detail() {
   const [roomInfo, setRoomInfo] = useState(null);
@@ -19,7 +20,7 @@ function Detail() {
     const id = window.location.pathname.split('/').pop();
 
     if (review && reservation) {
-      fetch(`http://10.58.3.19:8000/rooms/${id}`)
+      fetch(`${API}/rooms/${id}`)
         .then(res => res.json())
         .then(data => {
           setRoomInfo(data.results.room_info);
@@ -27,14 +28,14 @@ function Detail() {
     }
 
     if (reservation) {
-      fetch(`http://10.58.3.19:8000/reviews/${id}`)
+      fetch(`${API}/reviews/${id}`)
         .then(res => res.json())
         .then(data => {
           setReview(data.results);
         });
     }
 
-    fetch(`http://10.58.3.19:8000/reservations/detail/${id}`)
+    fetch(`${API}/reservations/detail/${id}`)
       .then(res => res.json())
       .then(data => {
         setReservation(data.results.reservation_date);

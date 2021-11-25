@@ -27,7 +27,12 @@ const Map = ({ rooms, highlight }) => {
     });
 
     loader.current.load().then(() => {
-      map.current = new google.maps.Map(mapBoxRef.current, MAP_OPTION);
+      map.current = new google.maps.Map(mapBoxRef.current, {
+        center: !rooms[0]
+          ? { lat: 37.5116419, lng: 127.0442542 }
+          : { lat: rooms[0].latitude, lng: rooms[0].longitude },
+        zoom: 14,
+      });
       infoWindow.current = new google.maps.InfoWindow({});
       rooms.map(item => {
         const priceNumber = item.price.toLocaleString();

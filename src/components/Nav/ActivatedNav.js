@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Person from './Person';
 import { FaSearch } from 'react-icons/fa';
-import { BsDashLg } from 'react-icons/bs';
 
-function SearchNav() {
+function SearchNav({ setIsClickedNav, isClickedNav }) {
   const [whichIsClicked, setWhichIsClicked] = useState('');
   const [personCardData, setPersonCardData] = useState([]);
   const [searchLocation, setSerchLocation] = useState('');
@@ -42,7 +41,7 @@ function SearchNav() {
     setWhichIsClicked('ㅇ');
 
     navigate(
-      `rooms?location=${searchLocation}&check_in=${checkInDate}&check_out=${checkOutDate}&guest=${
+      `roomlist?location=${searchLocation}&check_in=${checkInDate}&check_out=${checkOutDate}&guest=${
         personNum + childNum
       }`
     );
@@ -81,8 +80,7 @@ function SearchNav() {
   return (
     <Navigation>
       <Room>
-        숙소
-        <BsDashLg className="underbar" />
+        <div className="text">숙소</div>
       </Room>
       <SearchBarContainer>
         <SearchBar type="button">
@@ -158,7 +156,9 @@ function SearchNav() {
             </MapContainer>
             <SearchZoom
               type="button"
-              onClick={goToListPage}
+              onClick={() => {
+                return goToListPage(), setIsClickedNav(!isClickedNav);
+              }}
               disabled={searchBtnDisabled}
             >
               <FaSearch className="search" />
@@ -174,44 +174,33 @@ export default SearchNav;
 
 const Navigation = styled.nav`
   position: relative;
-  max-width: 1440px;
-  height: 180px;
-  padding: 20px 40px 0px 30px;
-  background-color: white;
-
-  .logo {
-    position: relative;
-    left: 35px;
-    font-size: 50px;
-    color: #ff385c;
-  }
-
-  .language {
-    margin-top: 17px;
-  }
+  width: 750px;
 `;
 
-const Room = styled.span`
+const Room = styled.div`
   position: relative;
-  left: 600px;
-  bottom: 73px;
-  font-size: 17px;
 
-  .underbar {
+  .text {
     position: absolute;
-    top: 19px;
-    left: 6px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 3px solid #ff385c;
   }
 `;
 
 const SearchBarContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: 50px;
+  right: 0;
 `;
 
 const SearchBar = styled.div`
   display: flex;
   margin-left: 273px;
-  width: 840px;
+  width: 750px;
   height: 73px;
   border-radius: 40px;
   border-color: #ebebeb;
@@ -246,6 +235,7 @@ const LocationInput = styled.input`
   color: gray;
   border-style: none;
   background: none;
+  outline: none;
 `;
 const CheckInDiv = styled.div`
   position: relative;
@@ -273,6 +263,7 @@ const CheckInInput = styled.input`
   color: gray;
   border-style: none;
   background: none;
+  outline: none;
 `;
 
 const CheckOutDiv = styled.div`
@@ -301,6 +292,7 @@ const CheckOutInput = styled.input`
   color: gray;
   border-style: none;
   background: none;
+  outline: none;
 `;
 
 const PersonDiv = styled.div`

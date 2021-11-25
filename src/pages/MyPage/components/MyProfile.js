@@ -90,7 +90,7 @@ export default function MyProfile({ userImg, userName, getMyProfile }) {
 const ProfileWrapper = styled.section`
   position: fixed;
   float: left;
-  top: 5rem;
+  top: 15%;
   padding: 2rem;
   width: 300px;
   border: 1px solid #ddd;
