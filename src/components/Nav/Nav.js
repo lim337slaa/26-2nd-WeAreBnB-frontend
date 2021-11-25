@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import ActivatedNav from './ActivatedNav';
 import LoginPop from './LoginPop';
@@ -12,6 +12,7 @@ import { VscThreeBars } from 'react-icons/vsc';
 function Nav() {
   const [isClickedNav, setIsClickedNav] = useState(false);
   const [whichIsClickedLogin, setWhichIsClickedLogin] = useState(false);
+  const navRef = useRef();
   const navigate = useNavigate();
 
   const isLogined = () => {
@@ -25,41 +26,41 @@ function Nav() {
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    <Navigation>
-      <GiMushroomHouse className="logo" />
-      <Logo>WeAre BnB</Logo>
+    <Navigation style={{ height: isClickedNav ? 190 : 120 }}>
+      <NavWrapper>
+        <LogoWrapper onClick={() => navigate('/')}>
+          <GiMushroomHouse className="logo" size="40" />
+          <Logo>WeAreBnB</Logo>
+        </LogoWrapper>
 
-      <HostContainer>
-        <Host>호스트 되기</Host>
-        <GrLanguage className="language" />
-        <Login type="button" onClick={isLogined}>
-          <VscThreeBars className="bars" />
-          <FaUserCircle className="person" />
-        </Login>
-        {whichIsClickedLogin ? <LoginPop /> : null}
-      </HostContainer>
-
-      {isClickedNav ? (
-        <ActivatedNav />
-      ) : (
-        <TopContainer>
-          <SearchBarContainer>
-            <SearchBar
-              type="button"
-              onClick={() => setIsClickedNav(!isClickedNav)}
-            >
-              <SearchStart type="button">
-                <LocationText>검색 시작하기</LocationText>
-              </SearchStart>
-              <PersonNum type="button">
-                <SearchZoom type="button">
-                  <FaSearch className="search" />
-                </SearchZoom>
-              </PersonNum>
-            </SearchBar>
-          </SearchBarContainer>
-        </TopContainer>
-      )}
+        {isClickedNav ? (
+          <ActivatedNav
+            setIsClickedNav={setIsClickedNav}
+            isClickedNav={isClickedNav}
+          />
+        ) : (
+          <TopContainer
+            type="button"
+            onClick={() => setIsClickedNav(!isClickedNav)}
+          >
+            <LocationText>
+              <p className="text">검색 시작하기</p>
+            </LocationText>
+            <SearchZoom type="button">
+              <FaSearch className="search" />
+            </SearchZoom>
+          </TopContainer>
+        )}
+        <HostContainer>
+          <Host>호스트 되기</Host>
+          <GrLanguage className="language" />
+          <Login type="button" onClick={isLogined}>
+            <VscThreeBars className="bars" />
+            <FaUserCircle className="person" />
+          </Login>
+          {whichIsClickedLogin ? <LoginPop /> : null}
+        </HostContainer>
+      </NavWrapper>
     </Navigation>
   );
 }
@@ -69,69 +70,116 @@ export default Nav;
 const Navigation = styled.nav`
   position: sticky;
   top: 0;
-  max-width: 1440px;
+  padding: 2rem 0;
+  width: 100%;
   background-color: white;
-  height: 93px;
-  padding: 20px 40px 0px 30px;
+  box-shadow: 3px 3px 15px #eee;
+  z-index: 97;
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1200px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ff385c;
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;
+  cursor: pointer;
 
   .logo {
-    position: relative;
-    left: 35px;
-    font-size: 50px;
-    color: #ff385c;
+    margin-right: 1rem;
   }
 `;
 
-const Logo = styled.span`
-  position: absolute;
-  left: 125px;
-  top: 40px;
+const Logo = styled.p`
+  margin-top: 20px;
   font-size: 20px;
   font-weight: 900;
   color: #ff385c;
 `;
 
 const TopContainer = styled.div`
-  font-size: 15px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const SearchBarContainer = styled.span`
-  position: absolute;
-  left: 550px;
-  bottom: 20px;
-`;
-
-const HostContainer = styled.span`
   position: relative;
-  left: 1040px;
-  bottom: 20px;
-  font-size: 15px;
+  width: 300px;
+  border-radius: 50px;
+  border: 1px solid #ebebeb;
+  box-shadow: 5px 5px 10px #ddd;
+  cursor: pointer;
+`;
 
-  .language {
-    margin: 0px 25px 0px 10px;
+const LocationText = styled.div`
+  position: relative;
+  left: 30px;
+  padding: 1rem 0;
+  width: 100px;
+  font-size: 15px;
+  .text {
   }
 `;
 
-const Host = styled.span`
-  margin: 0px 12px 0px 10px;
+const SearchZoom = styled.div`
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 100%;
+  border-color: #ebebeb;
+
+  .search {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
 `;
-const Login = styled.button`
+
+const HostContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   position: relative;
-  bottom: 7px;
+  width: 230px;
+  height: 50px;
+
+  .language {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+const Host = styled.p`
+  font-size: 16px;
+  padding: 20px 0 0 0px;
+  color: #333;
+  font-weight: normal;
+`;
+
+const Login = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   width: 80px;
   height: 45px;
   border-radius: 20px;
-  border-color: #ebebeb;
+  border: 1px solid #ddd;
   background-color: white;
   cursor: pointer;
 
   .bars {
     position: absolute;
     top: 10px;
-    right: 45px;
-    font-size: 18px;
+    left: 15px;
+    font-size: 20px;
   }
 
   .person {
@@ -141,59 +189,4 @@ const Login = styled.button`
     font-size: 30px;
     color: gray;
   }
-`;
-
-const SearchBar = styled.div`
-  display: flex;
-  width: 310px;
-  height: 50px;
-  margin-right: 260px;
-  border-radius: 40px;
-  background-color: white;
-  font-size: 15px;
-  border: 1px solid #ebebeb;
-`;
-
-const SearchStart = styled.div`
-  width: 260px;
-  height: 30px;
-  padding: 20px 0px 0px 30px;
-  background-color: white;
-  border: none;
-  border-color: #ebebeb;
-  font-size: 13px;
-  cursor: pointer;
-`;
-
-const LocationText = styled.span`
-  font-size: 14px;
-`;
-
-const PersonNum = styled.div`
-  position: relative;
-  width: 200px;
-  height: 50px;
-  padding: 20px 0px 0px 20px;
-  border: none;
-  border-color: #ebebeb;
-  font-size: 13px;
-  background-color: white;
-  cursor: pointer;
-
-  .search {
-    margin: 10px 30px 0px 10px;
-    color: white;
-  }
-`;
-
-const SearchZoom = styled.div`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 32px;
-  height: 32px;
-  background-color: red;
-  border-radius: 30px;
-  border-color: #ebebeb;
-  cursor: pointer;
 `;

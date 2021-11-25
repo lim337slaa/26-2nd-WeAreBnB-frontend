@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FiChevronDown } from 'react-icons/fi';
 import ReservationDate from './ReservationDate';
 import ReservationPerson from './ReservationPerson';
+import { API } from '../../../config';
 
 function DetailSider({ price, maxGuest, roomDate, id }) {
   const [actDate, setActDate] = useState(false);
@@ -56,7 +57,7 @@ function DetailSider({ price, maxGuest, roomDate, id }) {
   const handleClickReservation = e => {
     e.preventDefault();
 
-    fetch('http://10.58.3.19:8000/reservations', {
+    fetch(`${API}/reservations`, {
       method: 'POST',
       headers: {
         Authorization: process.env.REACT_APP_USER_TOKEN,
@@ -65,7 +66,7 @@ function DetailSider({ price, maxGuest, roomDate, id }) {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.message === 'SUCCESS') {
+        if (res.reservation_code) {
           navigate('/mypage');
         } else {
           navigate('/login');
@@ -198,7 +199,7 @@ const FormCheckIn = styled.div`
   position: relative;
   width: 50%;
   padding: 26px 12px 10px;
-  color: ${props => props.theme.subTextColor};
+  color: ${props => props.theme.TextColor};
   border-right: 1px solid ${props => props.theme.subTextColor};
   font-size: 14px;
 `;
@@ -207,7 +208,7 @@ const FormCheckOut = styled.div`
   position: relative;
   width: 50%;
   padding: 26px 12px 10px;
-  color: ${props => props.theme.subTextColor};
+  color: ${props => props.theme.TextColor};
   font-size: 14px;
 `;
 

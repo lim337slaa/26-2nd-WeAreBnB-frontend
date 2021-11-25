@@ -5,6 +5,7 @@ import FilterButton from './components/FilterButton';
 import RoomBox from './components/RoomBox';
 import Map from './components/Map';
 import { SUB_FILTER } from './components/data';
+import { API } from '../../config';
 
 const LIMIT = 15;
 const PAGES = new Array(1, 2, 3);
@@ -17,16 +18,17 @@ function RoomLists() {
   const [page, setPage] = useState(0);
   const [highlight, setHighlight] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const moveDetailPage = id => {
     navigate(`/rooms/${id}`);
   };
 
   useEffect(() => {
+    const searchResult = location.search;
     if (roomType.length > 0 && (minPrice || maxPrice)) {
       fetch(
-        // `/data/Rooms.json`
-        `http://10.58.6.228:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}&${roomType}`
+        `${API}/rooms?${searchResult}&price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}&${roomType}`
       )
         .then(res => res.json())
         .then(data => setRooms(data.results));
@@ -34,8 +36,7 @@ function RoomLists() {
 
     if (roomType.length === 0 && (minPrice || maxPrice)) {
       fetch(
-        // `/data/Rooms.json`
-        `http://10.58.6.228:8000/rooms?price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}`
+        `${API}/rooms?${searchResult}&price_max=${maxPrice}&price_min=${minPrice}&limit=15&offset=${page}`
       )
         .then(res => res.json())
         .then(data => setRooms(data.results));
@@ -108,6 +109,7 @@ function RoomLists() {
                 price={room.price}
                 starRating={room.rating}
                 review={room.review}
+                days={room.days}
                 moveDetailPage={moveDetailPage}
                 highlightedMarker={highlightedMarker}
               />

@@ -1,11 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function LoginPopUp() {
+  const navigate = useNavigate();
+
+  const LogOutUser = e => {
+    navigate('/');
+  };
+
   return (
     <LoginPop>
-      <Mypage>마이페이지</Mypage>
-      <Logout>로그아웃</Logout>
+      <Mypage onClick={() => navigate('mypage')}>마이페이지</Mypage>
+      <Logout onClick={LogOutUser}>로그아웃</Logout>
     </LoginPop>
   );
 }

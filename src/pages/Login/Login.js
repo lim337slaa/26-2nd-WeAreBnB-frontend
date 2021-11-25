@@ -1,16 +1,19 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginKakao from './components/LoginKakao';
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const modalRef = useRef();
+  const navigate = useNavigate();
 
   const closeModal = e => {
     const condition = modalRef.current.contains(e.target);
 
     if (!condition) {
       setIsLogin(false);
+      navigate('/');
     }
   };
 

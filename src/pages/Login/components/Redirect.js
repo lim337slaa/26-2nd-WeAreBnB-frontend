@@ -10,7 +10,7 @@ const Redirect = () => {
 
   const bodyData = {
     grant_type: 'authorization_code',
-    client_id: process.env.REACT_APP_USER_TOKEN,
+    client_id: process.env.REACT_APP_CLIENT_ID,
     redirect_uri: REDIRECT_URI,
     code: accessCode,
   };
@@ -32,7 +32,7 @@ const Redirect = () => {
       .then(result => {
         accessToken = result.access_token;
         accessToken &&
-          fetch('http://10.58.1.56:8000/users/kakaologin', {
+          fetch(`${API}/users/kakaologin`, {
             headers: {
               Authorization: accessToken,
             },
