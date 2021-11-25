@@ -16,11 +16,11 @@ function RoomBox({
   moveDetailPage,
 }) {
   return (
-    <RoomBoxs onClick={() => moveDetailPage(id)}>
+    <RoomBoxs>
       <div className="roomBoxLeft">
         <RoomPhotos classNmae="roomImg" imgs={images} />
       </div>
-      <div className="roomBoxRight">
+      <div className="roomBoxRight" onClick={() => moveDetailPage(id)}>
         <RoomType>{roomType}</RoomType>
         <RoomName>{title}</RoomName>
         <Line />
