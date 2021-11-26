@@ -2,6 +2,7 @@
 
 [데모 영상] https://youtu.be/J1Jll-h7MRE
 
+
 ### [팀명] : WeAreBnB (위아비엔비)
 
 - 에어비엔비(https://www.airbnb.co.kr/) 클론 프로젝트
