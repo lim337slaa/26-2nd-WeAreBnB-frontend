@@ -1,6 +1,6 @@
 ## 🏡WeAreBnB Project
 
-[데모 영상] https://youtu.be/J1Jll-h7MRE
+[시현 영상] https://www.youtube.com/watch?v=KUeAS8k2ok0
 
 
 ### [팀명] : WeAreBnB (위아비엔비)
